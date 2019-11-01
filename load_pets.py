@@ -1,4 +1,4 @@
-import sqlite3 as lite
+import sqlite3
 
 
 def create_tables (db_name, person, pet, person_pet):
@@ -12,13 +12,13 @@ def create_tables (db_name, person, pet, person_pet):
     """
 
     # create connection to "pets.db"
-    conn = lite.connect(db_name)
+    con = sqlite3.connect(db_name)
     
     # with the connection open
-    with conn:
+    with con:
 
         # create the cursor
-        cursor = conn.cursor()
+        cursor = con.cursor()
 
         # create person table and populate it with data
         cursor.execute("DROP TABLE IF EXISTS person")
@@ -79,3 +79,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+    
